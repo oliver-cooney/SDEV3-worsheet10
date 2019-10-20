@@ -21,9 +21,21 @@
 		    	<a class="navbar-brand" href="#">WebSiteName</a>
 			</div>
 			<ul class="nav navbar-nav">
-            	<li><a href="{% url 'products' %}">Home</a></li>
-		    	<li><a href="">On Sale</a></li>
-				<li><a href="">About us</a></li>
+				{% if request.user.is_authenticated %}
+				<li>
+					<a href="{% url 'products' %}">Products</a>
+				</li>
+				<li>
+					<a href="{% url 'signout' %}">Sign Out<i class="fas fa-sign-out-alt"></i></a>
+				</li>
+				{% else %}
+				<li>
+					<a href="{% url 'signup' %}">Sign Up<i class="fas fa-user-plus"></i></a>
+				</li>
+				<li>
+					<a href="{% url 'signin' %}">Sign In <i class="fas fa-sign-in-alt"></i></a>
+				</li>
+				{% endif %}
 				{% if item_count > 0 %}
 				<li class="nav-item">
 			  		<a class="nav-link" href="{% url 'cart_detail' %}">

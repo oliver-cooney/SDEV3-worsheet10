@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
+    'order.apps.OrderConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'templates'),os.path.join(BASE_DIR,'shop','templates/'),
-                                            os.path.join(BASE_DIR,'cart','templates/')],
+                                            os.path.join(BASE_DIR,'cart','templates/'),
+                                            os.path.join(BASE_DIR,'order','templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
